@@ -1,0 +1,6 @@
+﻿services:
+  identitymicroservice:
+    image: identitymicroservice
+    build:
+      context: .
+      dockerfile: src/microservices/IdentityMicroservice/Dockerfile

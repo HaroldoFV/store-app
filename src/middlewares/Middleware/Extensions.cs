@@ -29,6 +29,28 @@ public static class Extensions
         });
     }
 
+    public static void AddJwt(this IServiceCollection services, IConfiguration configuration)
+    {
+        var options = new JwtOptions();
+        var section = configuration.GetSection("jwt");
+        section.Bind(options);
+        services.Configure<JwtOptions>(section);
+        services.AddSingleton<IJwtBuilder, JwtBuilder>();
+
+        services.AddAuthentication()
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.Secret))
+                };
+            });
+    }
+
     public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         var section = configuration.GetSection("jwt");
