@@ -62,7 +62,7 @@ public class JwtBuilder(IOptions<JwtOptions> options) : IJwtBuilder
             var jwtToken = (JwtSecurityToken)tokenHandler.ReadToken(token);
             if (jwtToken == null)
             {
-                return null;
+                return null!;
             }
 
             var key = Encoding.UTF8.GetBytes(_options.Secret);
