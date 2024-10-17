@@ -1,9 +1,10 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace Middleware;
 
@@ -29,7 +30,7 @@ public class JwtBuilder(IOptions<JwtOptions> options) : IJwtBuilder
     public string ValidateToken(string token)
     {
         var principal = GetPrincipal(token);
-        if (principal is null)
+        if (principal == null)
         {
             return string.Empty;
         }
@@ -37,7 +38,7 @@ public class JwtBuilder(IOptions<JwtOptions> options) : IJwtBuilder
         ClaimsIdentity identity;
         try
         {
-            identity = (ClaimsIdentity)principal.Identity!;
+            identity = (ClaimsIdentity)principal.Identity;
         }
         catch (NullReferenceException)
         {
@@ -62,7 +63,7 @@ public class JwtBuilder(IOptions<JwtOptions> options) : IJwtBuilder
             var jwtToken = (JwtSecurityToken)tokenHandler.ReadToken(token);
             if (jwtToken == null)
             {
-                return null!;
+                return null;
             }
 
             var key = Encoding.UTF8.GetBytes(_options.Secret);

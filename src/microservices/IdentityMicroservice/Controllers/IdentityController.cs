@@ -26,7 +26,7 @@ public class IdentityController(IUserRepository userRepository, IJwtBuilder jwtB
         if (!isValid)
             return BadRequest("Could not authenticate user.");
 
-        var token = jwtBuilder.GetToken(u.Id ?? string.Empty);
+        var token = jwtBuilder.GetToken(u.Id);
 
         return Ok(token);
     }

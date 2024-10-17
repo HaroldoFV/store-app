@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddJwtAuthentication(builder.Configuration);
+// builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddMongoDb(builder.Configuration);
 
 builder.Services.AddSingleton<ICartRepository>(sp =>

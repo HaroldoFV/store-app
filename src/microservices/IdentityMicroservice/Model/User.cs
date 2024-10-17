@@ -14,7 +14,7 @@ public class User
 
     public required string Email { get; init; }
     public required string Password { get; set; }
-    private string? Salt { get; set; }
+    public string? Salt { get; set; }
     public bool IsAdmin { get; init; }
 
     public void SetPassword(string password, IEncryptor encryptor)
@@ -24,5 +24,5 @@ public class User
     }
 
     public bool ValidatePassword(string password, IEncryptor encryptor) =>
-        Password == encryptor.GetHash(password, Salt ?? string.Empty);
+        Password == encryptor.GetHash(password, Salt);
 }
