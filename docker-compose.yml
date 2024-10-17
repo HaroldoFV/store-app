@@ -2,7 +2,7 @@
   mongo:
     image: mongo
     ports:
-      - 27017:27017
+      - "27017:27017"
 
   identity:
     build:
@@ -11,4 +11,4 @@
     depends_on:
       - mongo
     ports:
-      - 44397:80
+      - "44397:80"

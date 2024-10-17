@@ -1,6 +1,24 @@
-@IdentityMicroservice_HostAddress = http://localhost:5049
+@IdentityMicroservice_HostAddress = http://localhost:44397
+ 
+### Send POST request with json body
+POST {{IdentityMicroservice_HostAddress}}/api/Identity/register
+Content-Type: application/json
 
-GET {{IdentityMicroservice_HostAddress}}/weatherforecast/
+{
+  "email": "user2@store.com",
+  "password": "pass"
+}
+
+### Send POST request with json body
+POST {{IdentityMicroservice_HostAddress}}/api/Identity/login
+Content-Type: application/json
+
+{
+  "email": "user2@store.com",
+  "password": "pass"
+}
+
+### GET request with environment variables
+GET {{IdentityMicroservice_HostAddress}}/api/identity/validate?email=user2@store.com
+    &token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzExMTY5N2MyM2JlZWIyNWQwMTQ5MDQiLCJleHAiOjE3MjkxNzY3NDh9.ZQAVlhxHSWwYOBotveHpUfUA1dKyOFsDu8Y9qnpIdvs
 Accept: application/json
-
-###
