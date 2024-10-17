@@ -84,7 +84,6 @@ public class CartRepository(IMongoDatabase db) : ICartRepository
             {
                 cartItem.Name = name;
                 cartItem.Price = price;
-
                 var update = Builders<Cart>.Update
                     .Set(c => c.CartItems, cart.CartItems);
                 _col.UpdateOne(c => c.Id == cart.Id, update);
@@ -95,11 +94,9 @@ public class CartRepository(IMongoDatabase db) : ICartRepository
     public void DeleteCatalogItem(string catalogItemId)
     {
         var carts = GetCarts(catalogItemId);
-
         foreach (var cart in carts)
         {
             cart.CartItems.RemoveAll(ci => ci.CatalogItemId == catalogItemId);
-
             var update = Builders<Cart>.Update
                 .Set(c => c.CartItems, cart.CartItems);
             _col.UpdateOne(c => c.Id == cart.Id, update);
@@ -109,9 +106,8 @@ public class CartRepository(IMongoDatabase db) : ICartRepository
 
     private IList<Cart> GetCarts(string catalogItemId)
     {
-        return
-            _col
-                .Find(c => c.CartItems.Any(ci => ci.CatalogItemId == catalogItemId))
-                .ToList();
+        return _col
+            .Find(c => c.CartItems.Any(ci => ci.CatalogItemId == catalogItemId))
+            .ToList();
     }
 }
