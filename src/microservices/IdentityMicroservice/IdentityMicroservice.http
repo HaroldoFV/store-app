@@ -20,5 +20,5 @@ Content-Type: application/json
 
 ### GET request with environment variables
 GET {{IdentityMicroservice_HostAddress}}/api/identity/validate?email=user2@store.com
-    &token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzExMTY5N2MyM2JlZWIyNWQwMTQ5MDQiLCJleHAiOjE3MjkxNzY3NDh9.ZQAVlhxHSWwYOBotveHpUfUA1dKyOFsDu8Y9qnpIdvs
+    &token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE2NzAzODRjNmY0ZWRmNjg4OWQ4NzciLCJleHAiOjE3Mjk1Mjc2NTR9.T92oaYh247iqdTYmgkpGoyNcZRZT0wYWq1x6vAbizoI
 Accept: application/json

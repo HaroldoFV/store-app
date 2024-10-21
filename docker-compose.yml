@@ -12,3 +12,12 @@
       - mongo
     ports:
       - "44397:80"
+
+  cart:
+    build:
+      context: .
+      dockerfile: src/microservices/CartMicroservice/Dockerfile
+    depends_on:
+      - mongo
+    ports:
+      - "44388:80"

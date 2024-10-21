@@ -13,6 +13,5 @@ public class Cart
 
     [BsonRepresentation(BsonType.ObjectId)]
     public string? UserId { get; init; }
-
     public List<CartItem> CartItems { get; init; } = new();
 }

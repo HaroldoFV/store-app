@@ -1,6 +1,54 @@
-@CartMicroservice_HostAddress = http://localhost:5293
+@CartMicroservice_HostAddress = http://localhost:44388
 
-GET {{CartMicroservice_HostAddress}}/weatherforecast/
+### GET  
+GET {{CartMicroservice_HostAddress}}/api/Cart?u=6716aab9946cb5df786e8e35
 Accept: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE2YWFiOTk0NmNiNWRmNzg2ZThlMzUiLCJleHAiOjE3Mjk1NDIzNDh9.kXak9E5YQxQtRdzmrl6l6FEsineB_BlHBq474-mP-4c
 
-###
+
+### Send POST request with json body
+POST {{CartMicroservice_HostAddress}}/api/Cart?u=6716aab9946cb5df786e8e35
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE2YWFiOTk0NmNiNWRmNzg2ZThlMzUiLCJleHAiOjE3Mjk1NDIzNDh9.kXak9E5YQxQtRdzmrl6l6FEsineB_BlHBq474-mP-4c
+
+{
+  "catalogItemId": "6605dd06002510bdf4ae99d9",
+  "name": "cart test",
+  "price": 199.90,
+  "quantity": 22
+}
+
+
+
+### Send PUT request with json body
+PUT {{CartMicroservice_HostAddress}}/api/Cart?u=6716aab9946cb5df786e8e35
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE2YWFiOTk0NmNiNWRmNzg2ZThlMzUiLCJleHAiOjE3Mjk1NDIzNDh9.kXak9E5YQxQtRdzmrl6l6FEsineB_BlHBq474-mP-4c
+
+{
+  "catalogItemId": "6605dd06002510bdf4ae99d9",
+  "name": "cart test 2",
+  "price": 30.45,
+  "quantity": 25
+}
+
+
+
+### 
+DELETE {{CartMicroservice_HostAddress}}/api/Cart?u=6716aab9946cb5df786e8e35&ci=6605dd06002510bdf4ae99d9
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE2YWFiOTk0NmNiNWRmNzg2ZThlMzUiLCJleHAiOjE3Mjk1NDIzNDh9.kXak9E5YQxQtRdzmrl6l6FEsineB_BlHBq474-mP-4c
+
+
+
+### Send PUT request 
+PUT {{CartMicroservice_HostAddress}}/api/Cart/update-catalog-item?ci=6605dd06002510bdf4ae99d9&n=cart%20test%20update3&p=23.00
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE2YWFiOTk0NmNiNWRmNzg2ZThlMzUiLCJleHAiOjE3Mjk1NDIzNDh9.kXak9E5YQxQtRdzmrl6l6FEsineB_BlHBq474-mP-4c
+
+
+
+### 
+DELETE {{CartMicroservice_HostAddress}}/api/Cart/delete-catalog-item?ci=6605dd06002510bdf4ae99d9
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE2YWFiOTk0NmNiNWRmNzg2ZThlMzUiLCJleHAiOjE3Mjk1NDIzNDh9.kXak9E5YQxQtRdzmrl6l6FEsineB_BlHBq474-mP-4c

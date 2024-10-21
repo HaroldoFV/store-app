@@ -53,7 +53,7 @@ public static class Extensions
             });
     }
 
-    public static void AddJwtAuthenctication(this IServiceCollection services, IConfiguration configuration)
+    public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         var section = configuration.GetSection("jwt");
         var options = section.Get<JwtOptions>();
